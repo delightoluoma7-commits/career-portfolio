@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delight Ekeanya | Cyber Security Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0f2e2e;
+            color: #222;
+            line-height: 1.7
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, .2)
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 22px;
+            color: #0f2e2e;
+            letter-spacing: -0.5px
+        }
+
+        .menu-btn {
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer
+        }
+
+        #navLinks {
+            display: none;
+            position: absolute;
+            top: 65px;
+            right: 12px;
+            background: #fff;
+            padding: 12px;
+            border-radius: 18px;
+            width: 220px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, .3)
+        }
+
+        #navLinks.show {
+            display: block
+        }
+
+        #navLinks a {
+            display: block;
+            padding: 12px 14px;
+            border-radius: 24px;
+            text-decoration: none;
+            color: #0f2e2e;
+            font-weight: 800;
+            margin: 6px 0;
+            cursor: pointer
+        }
+
+        #navLinks a.active {
+            background: #0f2e2e;
+            color: #fff
+        }
+
+        .page {
+            display: none
+        }
+
+        .page.active {
+            display: block
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0f2e2e 0%, #1a5a5a 50%, #0f3d3d 100%);
+            color: #fff;
+            padding: 35px 22px 45px
+        }
+
+        .hero-img {
+            width: 165px;
+            height: 165px;
+            border-radius: 50%;
+            border: 5px solid #ffcc00;
+            box-shadow: 0 0 0 7px rgba(255, 204, 0, .25), 0 0 45px rgba(255, 204, 0, .5);
+            object-fit: cover;
+            display: block;
+            margin-bottom: 18px;
+            background: #fff
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            line-height: 1.05;
+            margin: 10px 0;
+            font-weight: 900
+        }
+
+        .hero p {
+            margin: 16px 0;
+            max-width: 560px;
+            font-size: 17px;
+            opacity: .95
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 900;
+            display: inline-block;
+            margin: 8px 8px 0 0;
+            cursor: pointer;
+            transition: .2s
+        }
+
+        .btn-y {
+            background: #ffcc00;
+            color: #0f2e2e
+        }
+
+        .btn-y:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 204, 0, .4)
+        }
+
+        .btn-w {
+            border: 2px solid #fff;
+            color: #fff
+        }
+
+        .card {
+            margin: 18px;
+            background: #fff;
+            padding: 26px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .08)
+        }
+
+        .card h2 {
+            font-size: 26px;
+            margin-bottom: 14px;
+            color: #0f2e2e
+        }
+
+        .yellow {
+            border-left: 8px solid #ffcc00;
+            background: #fffbe6
+        }
+
+        .blue {
+            border-left: 8px solid #22d3ee;
+            background: #f0fdfe
+        }
+
+        .purple {
+            border-left: 8px solid #8b5cf6;
+            background: #f8f5ff
+        }
+
+        .pink {
+            border-left: 8px solid #ff6b9d;
+            background: #fff1f5
+        }
+
+        .project {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 16px
+        }
+
+        .project h3 {
+            color: #0f2e2e;
+            margin-bottom: 6px
+        }
+
+        .tag {
+            display: inline-block;
+            background: #0f2e2e;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            margin: 4px 4px 0 0;
+            letter-spacing: .3px
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px
+        }
+
+        td {
+            padding: 12px 8px;
+            border-bottom: 1px solid #f0f0f0
+        }
+
+        td:first-child {
+            font-weight: 800;
+            color: #0f2e2e;
+            width: 90px
+        }
+
+        .quote {
+            font-style: italic;
+            background: #0f2e2e;
+            color: #ffcc00;
+            padding: 16px;
+            border-radius: 12px;
+            margin: 16px 0;
+            text-align: center;
+            font-weight: 700
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Delight Ekeanya</div><button class="menu-btn"
+            onclick="document.getElementById('navLinks').classList.toggle('show')">☰</button>
+        <div id="navLinks"><a id="n-home" class="active" onclick="showPage('home')">Home</a><a id="n-about"
+                onclick="showPage('about')">About</a><a id="n-projects" onclick="showPage('projects')">Projects</a><a
+                id="n-planner" onclick="showPage('planner')">Planner</a><a id="n-contact"
+                onclick="showPage('contact')">Contact</a></div>
+    </nav>
+
+    <div id="home" class="page active">
+        <div class="hero">
+            <img src="delight.jpg.jpng" class="hero-img" alt="Delight Ekeanya" onerror="this.src='delight. jpg.jpg'">
+            <div style="color:#ffcc00;font-weight:900;letter-spacing:2px;font-size:13px">CYBER SECURITY STUDENT • MIVA
+                OPEN UNIVERSITY</div>
+            <h1>Delight<br>Ekeanya</h1>
+            <p>I'm a passionate Cyber Security student on a mission to make the digital world safer. I combine technical
+                curiosity with a protector's heart — analyzing threats, securing systems, and building a future where
+                technology serves people without fear.</p>
+            <a onclick="showPage('projects')" class="btn btn-y">Explore My Work →</a><a onclick="showPage('about')"
+                class="btn btn-w">My Story</a>
+        </div>
+    </div>
+
+    <div id="about" class="page">
+        <div class="card yellow">
+            <h2>About Me — The Protector Behind the Screen</h2>
+            <p>I am <b>Delight Ekeanya</b>, a B.Sc. Cyber Security student at MIVA Open University, based in Lagos,
+                Nigeria. I didn't stumble into Cyber Security — I chose it, because I believe security is not just about
+                systems, it's about people.</p><br>
+            <p>In a country where digital innovation is growing faster than digital protection, I saw a gap that needs
+                passionate defenders. Every phishing email that empties a small business, every data breach that exposes
+                families — these are not just technical failures, they are human stories. That is why I am here.</p><br>
+            <div class="quote">"I love my career because it allows me to be a quiet guardian — the one who watches,
+                learns, and stops the attack before the damage is done."</div>
+            <p><b>What drives me:</b> I am fascinated by the mindset of both attacker and defender. I love dissecting
+                how threats work — not to cause harm, but to understand how to build stronger defenses. From analyzing
+                suspicious email headers to monitoring network traffic in a virtual lab, I find purpose in the details
+                others overlook.</p><br>
+            <p><b>My Core Strengths:</b><br>
+                • <b>Threat Analysis & SOC Fundamentals</b> — Monitoring, detection, and incident triage<br>
+                • <b>Network Security</b> — Firewalls, OSI Model, TCP/IP, Subnetting<br>
+                • <b>Ethical Hacking Mindset</b> — Think like an attacker, act like a protector<br>
+                • <b>Web Security</b> — HTML, CSS, Secure Coding Practices<br>
+                • <b>Python for Security</b> — Automation and log analysis<br>
+                • <b>Soft Skills</b> — Critical thinking, clear documentation, calm under pressure</p><br>
+            <p><b>My Vision:</b> To become a certified SOC Analyst (Security+ & CEH certified) and work in a Security
+                Operations Center where I can protect organizations, mentor other young women in tech, and contribute to
+                a more resilient digital Nigeria.</p><br>
+            <p>Beyond the screen, I am a lifelong learner, a builder, and someone who believes that with discipline and
+                curiosity, you can secure not just networks, but futures.</p>
+        </div>
+    </div>
+
+    <div id="projects" class="page">
+        <div class="card blue">
+            <h2>Selected Projects — Learning by Building</h2>
+            <p>Each project represents a step in my journey from theory to practice. I don't just learn concepts — I
+                build, break, and secure.</p>
+
+            <div class="project">
+                <h3>01. COS 102 — Foundations of Computing Lab</h3>
+                <p>A deep dive into how computers think. I explored data representation, number systems, and built my
+                    first structured HTML documents. This project taught me that great security starts with
+                    understanding the fundamentals — how data moves, how it is stored, and where it can be vulnerable.
+                </p>
+                <p><span class="tag">COMPUTING FUNDAMENTALS</span><span class="tag">HTML</span><span class="tag">PROBLEM
+                        SOLVING</span></p>
+            </div>
+
+            <div class="project">
+                <h3>02. Cyber Threat Intelligence Lab</h3>
+                <p>Hands-on analysis of real-world attack patterns in a safe, isolated environment. I investigated
+                    phishing campaigns, traced malicious headers, and documented Indicators of Compromise (IoCs). The
+                    highlight was learning to remain calm and methodical while a simulated attack unfolded — a core
+                    skill for any SOC Analyst.</p>
+                <p><span class="tag">THREAT ANALYSIS</span><span class="tag">PHISHING</span><span class="tag">SOC
+                        BASICS</span></p>
+            </div>
+
+            <div class="project">
+                <h3>03. Personal Portfolio — Designed & Secured by Me</h3>
+                <p>This website you are viewing. More than a portfolio, it was a lesson in persistence. From solving a
+                    complex image-path issue with spaces in filenames to building a fully responsive, accessible
+                    interface with vanilla JavaScript — I learned to debug like a security analyst: patiently,
+                    systematically, and never giving up. Built mobile-first, optimized for performance, and designed to
+                    tell a clear story.</p>
+                <p><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JAVASCRIPT</span><span
+                        class="tag">RESPONSIVE DESIGN</span><span class="tag">DEBUGGING</span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="planner" class="page">
+        <div class="card purple">
+            <h2>Study Planner — Discipline Creates Freedom</h2>
+            <p>Cyber Security rewards consistency. My weekly structure balances deep theory, hands-on labs, and rest —
+                because a sharp analyst needs both focus and balance.</p>
+            <table>
+                <tr>
+                    <td>Monday</td>
+                    <td><b>COS 102 & Computing Lab</b> — Practical sessions, documentation, and peer review. 2-3 hours
+                        focused lab time.</td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td><b>Network Fundamentals</b> — OSI, TCP/IP, Wireshark basics, subnetting exercises. Building the
+                        map of how data travels.</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td><b>Security Theory</b> — CIA Triad, risk assessment, vulnerability management. Reading research
+                        papers and writing summaries.</td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td><b>Ethical Hacking Practice</b> — TryHackMe & safe labs. Learning attacker techniques to
+                        strengthen defense. Strictly ethical, strictly lab-contained.</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td><b>Build Day</b> — Portfolio updates, Python scripts for log parsing, and project documentation.
+                        Shipping work.</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td><b>Growth Day</b> — Python coding, YouTube deep-dives (SOC workflows), and certification prep
+                        (Security+).</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td><b>Reset</b> — Family, faith, rest, and light reading. A clear mind detects threats faster.</td>
+                </tr>
+            </table><br>
+            <p><b>Daily Rhythm:</b> 6:00 AM Rise & Plan | 7:00-9:00 AM Deep Study | 10:00 AM - 3:00 PM Lectures |
+                4:00-6:00 PM Hands-On Labs | 8:00-9:00 PM Review & Journal</p>
+        </div>
+    </div>
+
+    <div id="contact" class="page">
+        <div class="card pink">
+            <h2>Contact — Let's Build a Safer Web Together</h2>
+            <p>I am actively seeking mentorship, internship opportunities, and collaborative projects in Cyber Security,
+                particularly within SOC operations, threat detection, and security awareness.</p><br>
+            <p><b>Email:</b> delighttoluoma7@gmail.com<br><b>Phone:</b> 09074046324<br><b>Location:</b> Lagos, Nigeria
+                (Open to Remote)<br><b>University:</b> MIVA Open University — B.Sc. Cyber Security<br><b>Focus:</b> SOC
+                Analyst | Network Defense | Threat Analysis</p><br>
+            <p>If you are a professional in the field, a fellow student, or an organization looking for a dedicated
+                junior analyst — I would love to connect. I respond quickly, document clearly, and bring genuine
+                enthusiasm to every task.</p><br>
+            <a href="mailto:delighttoluoma7@gmail.com" class="btn btn-y">Email Me Directly</a>
+        </div>
+    </div>
+
+    <script>
+        function showPage(p) {
+            document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
+            document.getElementById(p).classList.add('active');
+            document.querySelectorAll('#navLinks a').forEach(x => x.classList.remove('active'));
+            document.getElementById('n-' + p).classList.add('active');
+            document.getElementById('navLinks').classList.remove('show');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+
+</html>
